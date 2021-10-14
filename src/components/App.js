@@ -5,7 +5,7 @@ import Web3 from 'web3';
 import DaiToken from '../abis/DaiToken.json';
 import DappToken from '../abis/DappToken.json';
 import TokenFarm from '../abis/TokenFarm.json';
-import Main from './main'
+import Main from './Main'
 
 class App extends Component {
 
@@ -18,13 +18,14 @@ class App extends Component {
   async loadBlockchainData() {
     const web3 = window.web3;
 
+    // loads all accounts in metamask into our project
     const accounts = await web3.eth.getAccounts();
     this.setState({ account: accounts[0] });
 
 
     // Contains functions to get information about the current network.
     const networkId = await web3.eth.net.getId();
-    console.log(networkId)
+    // console.log(networkId)
 
     // load daiToken
     const daiTokenData = DaiToken.networks[networkId];
